@@ -1,0 +1,16 @@
+FROM ubuntu:latest
+
+ MAINTAINER Dersu KILIC
+
+ # Paket listelerini download et
+ RUN apt-get update
+
+ # Nginx paketini yükle
+ RUN apt-get install -y nginx
+
+ ADD [ "./index.html", "/var/www/html/" ]
+
+ EXPOSE 4000
+
+ ENTRYPOINT nginx -g 'daemon off;'
+

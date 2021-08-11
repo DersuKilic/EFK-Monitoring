@@ -1,9 +1,9 @@
 version: "3"
 services:
   nginx:
-    image: nginx:1.13.12
+    image: nginx1.13.12
     volumes:
-      - ./nginx:/usr/share/nginx/html
+      - ./nginx:/nginx/html
     ports:
       - 4000:80
     logging:
