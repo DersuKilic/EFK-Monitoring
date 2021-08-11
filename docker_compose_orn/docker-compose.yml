@@ -1,5 +1,19 @@
 version: "3"
 services:
+  nginx:
+    image: nginx:1.13.12
+    volumes:
+      - ./nginx:/usr/share/nginx/html
+    ports:
+      - 4000:80
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: nginx.access
+    depends_on:
+      - fluentd
+
   web:
     image: httpd
     ports:
